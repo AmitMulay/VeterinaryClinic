@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<data>
+    <variable
+        name="petRow"
+        type="com.vclinic.ui.model.Pet" />
+</data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/petItem_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_8dp"
+        android:paddingEnd="@dimen/_8dp"
+        android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView_pet"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:displayImage="@{petRow.imageUrl}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtView_pet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtView_pet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@{petRow.title}"
+        android:textColor="@color/colorDividerGray"
+        app:layout_constraintStart_toEndOf="@+id/imageView_pet"
+        app:layout_constraintTop_toTopOf="@+id/imageView_pet"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_pet"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDividerDarkGray"
+        android:layout_marginTop="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_pet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
